@@ -4,6 +4,16 @@ A local-first browser app that inventories a folder you select, analyzes storage
 
 No backend, desktop app or agent. Nothing is uploaded. Source files are opened read-only and never modified.
 
+## Documentation
+
+| Document | Markdown | Word | PDF |
+| --- | --- | --- | --- |
+| User Guide | [md](docs/User%20Guide.md) | [docx](docs/Inventory%20Analyzer%20-%20User%20Guide.docx) | [pdf](docs/Inventory%20Analyzer%20-%20User%20Guide.pdf) |
+| Setup & Administration Guide | [md](docs/Setup%20and%20Administration%20Guide.md) | [docx](docs/Inventory%20Analyzer%20-%20Setup%20and%20Administration%20Guide.docx) | [pdf](docs/Inventory%20Analyzer%20-%20Setup%20and%20Administration%20Guide.pdf) |
+| Release Notes (v1.0–v1.2) | [md](docs/Release%20Notes.md) | [docx](docs/Inventory%20Analyzer%20-%20Release%20Notes.docx) | [pdf](docs/Inventory%20Analyzer%20-%20Release%20Notes.pdf) |
+| Test Report | [md](docs/Test%20Report.md) | | |
+| Product Requirements (PRD v3.0 + master prompt) | | [docx](docs/PRD%20and%20Master%20Prompt.docx) | |
+
 ## How to run it
 
 **Option 1 — on your PC, no install (recommended):** double-click **`Start Inventory Analyzer.bat`**. It opens `Inventory Analyzer.html` in its own Microsoft Edge window. Keep the two files together; you can copy them anywhere or share them. The folder picker, scan history and downloads all work in this mode. You can also open `Inventory Analyzer.html` directly in Chrome or Edge.
