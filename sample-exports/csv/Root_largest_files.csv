@@ -1,0 +1,11 @@
+﻿Rank,File Name,Relative Path,Extension,Size (bytes),Size (formatted),Modified (local time)
+1,big.bin,Root/deep/l1/l2/big.bin,bin,1000,1000 B,2026-01-15 16:00
+2,report.pdf,Root/docs/report.pdf,pdf,100,100 B,2026-01-15 16:00
+3,a.txt,Root/a.txt,txt,10,10 B,2026-01-15 16:00
+4,copy-of-a.txt,Root/docs/copy-of-a.txt,txt,10,10 B,2026-01-15 16:00
+5,same-size.txt,Root/docs/same-size.txt,txt,10,10 B,2026-01-15 16:00
+6,ünïcødé 文件.md,Root/docs/ünïcødé 文件.md,md,7,7 B,2026-01-15 16:00
+7,"'=evil,""name"".csv","Root/docs/=evil,""name"".csv",csv,5,5 B,2026-01-15 16:00
+8,secret.txt,Root/.hidden/secret.txt,txt,3,3 B,2026-01-15 16:00
+9,b.log,Root/b.log,log,0,0 B,2026-01-15 16:00
+10,bad.dat,Root/bad.dat,dat,0,0 B,

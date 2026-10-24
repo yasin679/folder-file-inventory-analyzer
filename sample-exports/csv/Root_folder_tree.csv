@@ -1,0 +1,21 @@
+﻿Item,Type,Files here,Files in total (incl. subfolders),Size (bytes),Size,Relative path
+Root,Folder,3,10,1145,1.12 KB,Root
+  .hidden,Folder,1,1,3,3 B,Root/.hidden
+    secret.txt,File,,,3,3 B,Root/.hidden/secret.txt
+  deep,Folder,0,1,1000,1000 B,Root/deep
+    l1,Folder,0,1,1000,1000 B,Root/deep/l1
+      l2,Folder,1,1,1000,1000 B,Root/deep/l1/l2
+        big.bin,File,,,1000,1000 B,Root/deep/l1/l2/big.bin
+  docs,Folder,5,5,132,132 B,Root/docs
+"    =evil,""name"".csv",File,,,5,5 B,"Root/docs/=evil,""name"".csv"
+    copy-of-a.txt,File,,,10,10 B,Root/docs/copy-of-a.txt
+    report.pdf,File,,,100,100 B,Root/docs/report.pdf
+    same-size.txt,File,,,10,10 B,Root/docs/same-size.txt
+    ünïcødé 文件.md,File,,,7,7 B,Root/docs/ünïcødé 文件.md
+  empty,Folder,0,0,0,0 B,Root/empty
+  locked,Folder (couldn't be opened),0,0,0,0 B,Root/locked
+  shell,Folder,0,0,0,0 B,Root/shell
+    inner,Folder,0,0,0,0 B,Root/shell/inner
+  a.txt,File,,,10,10 B,Root/a.txt
+  b.log,File,,,0,0 B,Root/b.log
+  bad.dat,File,,,0,0 B,Root/bad.dat

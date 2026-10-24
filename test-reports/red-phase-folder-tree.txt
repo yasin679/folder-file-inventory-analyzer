@@ -1,0 +1,22 @@
+   ✓ S01 first visit > shows scan options, both access modes and capabilities; data pages disabled 305ms
+   ✓ S14 file inventory > shows relative path and dot-prefixed status, and filters/sorts correctly 430ms
+   × S18/S19 exports > S18 Excel workbook has every sheet, reconciled counts and a confirmation 244ms
+   × S18/S19 exports > S19 single CSV and ZIP are UTF-8, escaped, injection-safe and complete 177ms
+   × S35 folder explorer > shows each folder with its file counts and the files inside it 306ms
+   × S35 folder explorer > opens with the root expanded: folders first, then files, each with counts 273ms
+   × S35 folder explorer > expanding a folder lists exactly its files; expand/collapse all work 191ms
+   × S36 find where a file is > search shows only matches with their folders opened, and counts them 262ms
+   × S37 dashboard: where your files are > lists top-level folders by file count and opens one in the explorer 185ms
+   × S38 show a file in the folder tree > jumps from the inventory to the file, opened and selected in its folder 547ms
+ ✓ tests/scanner.test.ts (17 tests) 62ms
+   × CSV export > includes every expected table and a ZIP bundle with all CSVs 9ms
+   × XLSX export > contains the expected worksheets and row counts reconcile with the scan 170ms
+ ✓ tests/controller.test.ts (6 tests) 15ms
+   × S35 folder tree model > lists every folder and file exactly once, each file under its own folder 7ms
+   × S35 folder tree model > shows subfolders before files, each sorted by name, with folder counts 2ms
+   × S35 folder tree export > Excel has an indented Folder Tree sheet right after the summary 147ms
+   × S35 folder tree export > CSV bundle includes folder_tree.csv 11ms
+ ✓ tests/history.test.ts (3 tests) 14ms
+ ✓ tests/samples.test.ts (1 test) 112ms
+⎯⎯⎯⎯⎯⎯ Failed Tests 14 ⎯⎯⎯⎯⎯⎯⎯
+      Tests  14 failed | 60 passed (74)

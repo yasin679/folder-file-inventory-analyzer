@@ -1,0 +1,11 @@
+﻿Folder ID,Folder Name,Relative Path,Parent Folder,Depth,Direct Files,Recursive Files,Direct Subfolders,Recursive Subfolders,Direct Size (bytes),Recursive Size (bytes),Recursive Size (formatted),Empty Status,Scan Completeness
+0,Root,Root,(selected root),0,3,10,6,9,10,1145,1.12 KB,Contains files,incomplete
+1,docs,Root/docs,Root,1,5,5,0,0,132,132,132 B,Contains files,complete
+2,empty,Root/empty,Root,1,0,0,0,0,0,0,0 B,"Empty (no files, no subfolders)",complete
+3,shell,Root/shell,Root,1,0,0,1,1,0,0,0 B,No files anywhere — only empty subfolders,complete
+4,deep,Root/deep,Root,1,0,1,1,2,0,1000,1000 B,Subfolders only (files exist deeper),complete
+5,.hidden,Root/.hidden,Root,1,1,1,0,0,3,3,3 B,Contains files,complete
+6,locked,Root/locked,Root,1,0,0,0,0,0,0,0 B,Unknown — folder could not be fully listed,incomplete
+7,inner,Root/shell/inner,Root/shell,2,0,0,0,0,0,0,0 B,"Empty (no files, no subfolders)",complete
+8,l1,Root/deep/l1,Root/deep,2,0,1,1,1,0,1000,1000 B,Subfolders only (files exist deeper),complete
+9,l2,Root/deep/l1/l2,Root/deep/l1,3,1,1,0,0,1000,1000,1000 B,Contains files,complete

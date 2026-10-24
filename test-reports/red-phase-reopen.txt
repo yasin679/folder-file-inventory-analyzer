@@ -1,0 +1,11 @@
+   × S21/S22 scan history > S21 records scan details; delete and clear work 288ms
+   × S39 reopen a past scan > after closing the app, a scan can be reopened from history with all screens and exports 1379ms
+   × S40 download straight from history > each saved scan has Excel and CSV ZIP downloads in its history row 1138ms
+   × S40 download straight from history > the history table shows the full folder name, ID and times without truncating actions 293ms
+   × S41 summary-only scans > when keeping full results is turned off, the row says so and cannot be opened 45ms
+   × S42 open the last scan from New Scan > offers the most recent saved scan when the app opens 1088ms
+   × S43 delete removes the saved results > a deleted scan disappears and the last-scan offer goes with it 1126ms
+   × S39 saved scan results > saves and reloads a full result identical to the original 10ms
+   × S39 saved scan results > delete and clear remove saved results too 3ms
+   × S39 saved scan results > keeps full results for the newest 20 scans; older ones stay as summaries 3ms
+   × S39 saved scan results > upgrades a v1.0/v1.1 history database without losing existing summaries 1ms

@@ -1,0 +1,16 @@
+   × S01 first visit > shows scan options, both access modes and capabilities; data pages disabled 167ms
+   × S03/S04/S05 picker outcomes > S05 without the API the picker is disabled but upload works 30ms
+   × S09/S10 duplicates > S10 finds identical content only; same name or same size is not a duplicate 76ms
+   × S14 file inventory > shows relative path and dot-prefixed status, and filters/sorts correctly 450ms
+   × S15 folder summary > shows direct vs recursive and drills into exactly one subtree 257ms
+   × S16 storage analysis > Top-N and threshold controls update the lists 1082ms
+   × S17 empty folders > lists empty and empty-tree folders, never unreadable ones 131ms
+   ✓ S18/S19 exports > S18 Excel workbook has every sheet, reconciled counts and a confirmation 332ms
+   × S18/S19 exports > S19 single CSV and ZIP are UTF-8, escaped, injection-safe and complete 413ms
+   × S18/S19 exports > S20b a declined save is not reported as a crash 1070ms
+   × S21/S22 scan history > S21 records scan details; delete and clear work 218ms
+   × S23 settings persistence > remembers defaults across visits, but never defaults duplicates on 103ms
+   ✓ S24/S25 privacy and read-only > S24 scanning, hashing and exporting make no network requests 352ms
+   × S27 pagination > pages long lists and lets the user change page size 793ms
+⎯⎯⎯⎯⎯⎯ Failed Tests 12 ⎯⎯⎯⎯⎯⎯⎯
+      Tests  12 failed | 18 passed (30)

@@ -1,0 +1,11 @@
+﻿File ID,File Name,Relative Path,Parent Folder,Extension,Size (bytes),Size (formatted),Modified (local time),Dot-prefixed,Scan Status,Duplicate Status,Duplicate Group,SHA-256
+0,a.txt,Root/a.txt,Root,txt,10,10 B,2026-01-15 16:00,No,ok,duplicate,1,84d89877f0d4041efb6bf91a16f0248f2fd573e6af05c19f96bedb9f882f7882
+1,b.log,Root/b.log,Root,log,0,0 B,2026-01-15 16:00,No,ok,not-checked,,
+2,bad.dat,Root/bad.dat,Root,dat,0,0 B,,No,metadata-error,not-checked,,
+3,report.pdf,Root/docs/report.pdf,Root/docs,pdf,100,100 B,2026-01-15 16:00,No,ok,unique,,
+4,copy-of-a.txt,Root/docs/copy-of-a.txt,Root/docs,txt,10,10 B,2026-01-15 16:00,No,ok,duplicate,1,84d89877f0d4041efb6bf91a16f0248f2fd573e6af05c19f96bedb9f882f7882
+5,same-size.txt,Root/docs/same-size.txt,Root/docs,txt,10,10 B,2026-01-15 16:00,No,ok,unique,,72399361da6a7754fec986dca5b7cbaf1c810a28ded4abaf56b2106d06cb78b0
+6,"'=evil,""name"".csv","Root/docs/=evil,""name"".csv",Root/docs,csv,5,5 B,2026-01-15 16:00,No,ok,unique,,
+7,ünïcødé 文件.md,Root/docs/ünïcødé 文件.md,Root/docs,md,7,7 B,2026-01-15 16:00,No,ok,unique,,
+8,big.bin,Root/deep/l1/l2/big.bin,Root/deep/l1/l2,bin,1000,1000 B,2026-01-15 16:00,No,ok,unique,,
+9,secret.txt,Root/.hidden/secret.txt,Root/.hidden,txt,3,3 B,2026-01-15 16:00,No,ok,unique,,

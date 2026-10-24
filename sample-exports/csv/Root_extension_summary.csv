@@ -1,0 +1,8 @@
+﻿Extension,File Count,Total Size (bytes),Total Size (formatted),% of Accessible Size,Average Size (bytes),Largest File (bytes)
+bin,1,1000,1000 B,87.3362,1000,1000
+pdf,1,100,100 B,8.7336,100,100
+txt,4,33,33 B,2.8821,8,10
+md,1,7,7 B,0.6114,7,7
+csv,1,5,5 B,0.4367,5,5
+dat,1,0,0 B,0,0,0
+log,1,0,0 B,0,0,0

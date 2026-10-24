@@ -1,0 +1,10 @@
+﻿Rank,Relative Path,Depth,Direct Size (bytes),Recursive Size (bytes),Recursive Size (formatted),Direct Files,Recursive Files,Scan Completeness
+1,Root/deep,1,0,1000,1000 B,0,1,complete
+2,Root/deep/l1,2,0,1000,1000 B,0,1,complete
+3,Root/deep/l1/l2,3,1000,1000,1000 B,1,1,complete
+4,Root/docs,1,132,132,132 B,5,5,complete
+5,Root/.hidden,1,3,3,3 B,1,1,complete
+6,Root/empty,1,0,0,0 B,0,0,complete
+7,Root/locked,1,0,0,0 B,0,0,incomplete
+8,Root/shell,1,0,0,0 B,0,0,complete
+9,Root/shell/inner,2,0,0,0 B,0,0,complete

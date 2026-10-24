@@ -1,0 +1,3 @@
+﻿Group ID,SHA-256,Relative Path,File Size (bytes),File Size (formatted),Copies in Group,Group Redundant Bytes
+1,84d89877f0d4041efb6bf91a16f0248f2fd573e6af05c19f96bedb9f882f7882,Root/a.txt,10,10 B,2,10
+1,84d89877f0d4041efb6bf91a16f0248f2fd573e6af05c19f96bedb9f882f7882,Root/docs/copy-of-a.txt,10,10 B,2,10

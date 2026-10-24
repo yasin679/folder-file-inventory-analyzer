@@ -1,0 +1,4 @@
+﻿Relative Path,Depth,Subfolders (recursive),Classification
+Root/empty,1,0,"Empty (no files, no subfolders)"
+Root/shell,1,1,No files anywhere — only empty subfolders
+Root/shell/inner,2,0,"Empty (no files, no subfolders)"
