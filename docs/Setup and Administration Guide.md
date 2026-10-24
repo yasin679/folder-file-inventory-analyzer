@@ -11,7 +11,7 @@ Use the desktop launcher for real work. Use the published link to demo or try it
 | Mode | Best for | You need | Folder picker | Scan history | Downloads |
 | --- | --- | --- | --- | --- | --- |
 | Desktop launcher (`Start Inventory Analyzer.bat` + `Inventory Analyzer.html`) | Everyday use on a Windows PC | Microsoft Edge (built into Windows 10/11) | Yes | Yes | Yes |
-| Published link on claude.ai | Demos, quick checks, sharing with colleagues | A claude.ai account with access to the link | May be blocked by the hosted page — use Upload a folder | Yes | Yes, after you confirm each save |
+| Published link on claude.ai | Demos, quick checks, sharing with colleagues | The link must be shared (Share → Anyone with the link); until then others see "Sign in to view this page" | May be blocked by the hosted page — use Upload a folder | Yes | Yes, after you confirm each save |
 | Developer build (`npm run dev`) | Changing code, running tests | Node.js 18 or later | Yes | Yes | Yes |
 
 All three run the same app and produce identical reports. Each keeps its own scan history.
@@ -64,7 +64,7 @@ The app sends no data anywhere and never changes your files. Folders are opened 
 To give the app to colleagues, send them the two files or share the published link. To update it, replace `Inventory Analyzer.html`.
 
 - **Share the files:** zip `Start Inventory Analyzer.bat` and `Inventory Analyzer.html` and send them by email or Teams, or place them on a shared drive. Some mail filters block .bat files. If yours does, send only the .html file and ask people to open it in Edge or Chrome.
-- **Share the link:** the Inventory Analyzer artifact is private until you share it from its **Share** menu on claude.ai.
+- **Share the link:** the Inventory Analyzer app is private until you open it on claude.ai and choose **Share → Anyone with the link**. Until then, anyone else sees "Sign in to view this page". The guides are built into the app (Help & Documents), so one link gives people everything.
 - **Update:** overwrite `Inventory Analyzer.html` with the new build. The launcher doesn't change, and saved scan history and settings are kept.
 - **Rebuild from source** (project folder `folder-file-inventory-analyzer`):
     1. `npm install`
@@ -74,14 +74,14 @@ To give the app to colleagues, send them the two files or share the published li
 
 ## Verifying a build
 
-v1.2 passes all 92 automated tests, covering 43 user scenarios. Rerun them before you distribute a new build.
+v1.2 passes all 97 automated tests, covering 44 user scenarios. Rerun them before you distribute a new build.
 
 | Suite | Command | Tests | What it proves |
 | --- | --- | --- | --- |
 | Unit | `npm run test:unit` | 42 | Counts, direct and recursive sizes, duplicates, errors, cancellation, folder tree, history storage, Excel and CSV correctness |
-| UI scenarios | `npm run test:ui` | 42 | Every user scenario driven through the real app with clicks and typing |
+| UI scenarios | `npm run test:ui` | 47 | Every user scenario driven through the real app with clicks and typing |
 | End-to-end | `npm run test:e2e` | 8 | Production build in Chromium: real folder scan, downloads reopened, no network, phone layout, keyboard use, large scan reopened after reload |
-| Everything + coverage | `npm run test:all` | 92 | Writes coverage to `test-reports/coverage` (97.7% of statements) |
+| Everything + coverage | `npm run test:all` | 97 | Writes coverage to `test-reports/coverage` (97.7% of statements) |
 
 Before the first end-to-end run, install the test browser once with `npx playwright install chromium`. The scenario list is in `tests/SCENARIOS.md` and the results are in `test-reports/TEST_REPORT.md`.
 

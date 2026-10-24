@@ -7,13 +7,13 @@ Run date: 2026-10-24 · Node 22 · Vitest 2.1.8 · Playwright 1.63 (Chromium 153
 | Suite | Command | Tests | Result |
 |---|---|---|---|
 | Unit: engine, exports, history, worker controller, folder tree | `npm run test:unit` | 42 | ✅ all pass |
-| UI scenarios: React app in jsdom with real user events | `npm run test:ui` | 42 | ✅ all pass |
+| UI scenarios: React app in jsdom with real user events | `npm run test:ui` | 47 | ✅ all pass |
 | End-to-end: production build in real Chromium | `npm run test:e2e` | 8 | ✅ all pass |
-| **Total** | `npm run test:all` | **92** | ✅ |
+| **Total** | `npm run test:all` | **97** | ✅ |
 
 Coverage across `src/` (unit + UI): **97.7 % statements, 90.0 % branches, 97.7 % lines.** Function coverage is 71 %. That figure is low because many small sort and render callbacks for table columns are never invoked in tests; the scenario behaviour behind them is exercised. Full HTML coverage is in `test-reports/coverage/index.html`.
 
-The 43 user scenarios and the PRD requirements they cover are listed in `tests/SCENARIOS.md`. Each test name starts with its scenario ID, e.g. `npx vitest run -t "S15"`.
+The 44 user scenarios and the PRD requirements they cover are listed in `tests/SCENARIOS.md`. Each test name starts with its scenario ID, e.g. `npx vitest run -t "S15"`.
 
 ## How TDD was applied
 
@@ -81,3 +81,12 @@ One test-side fix: the first S39 run restarted the app before the background sav
 | Build the Excel from history | 6.2 s |
 
 The reopened workbook's File Inventory row count matched the scan.
+
+## v1.2 — Help & Documents inside the app (S44), test-first
+
+To share the complete application through one link, the three guides were embedded in the app with PDF and Word downloads. **4 tests failed** on the first run (log: `test-reports/red-phase-help.txt`) before the screen was built.
+
+The live published app was also checked in a real browser signed in to claude.ai:
+- **Working:** sample scan, Where your files are, Folder Explorer, and the Help screen rendering.
+- **Defect found:** the scan's report buttons showed on the Help screen. A test was added (S44b) and the defect fixed.
+- **Sharing:** viewed by someone else, the link showed "Sign in to view this page". It is private until the owner chooses Share → Anyone with the link.

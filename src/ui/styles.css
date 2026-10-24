@@ -220,3 +220,25 @@ td.wrap:has(> :not(div)), td.wrap:not(:has(*)) { white-space: nowrap; }
 .hist-actions { display: flex; gap: 6px; flex-wrap: wrap; justify-content: flex-end; }
 .hist-actions .btn { padding: 4px 9px; font-size: 12.5px; }
 .saved-offer { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+
+/* Help & Documents */
+.help { padding: 0; overflow: hidden; }
+.help-bar { display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap; padding: 10px 14px; border-bottom: 1px solid var(--line); background: var(--surface2); position: sticky; top: 0; }
+.help-tabs { display: flex; gap: 4px; flex-wrap: wrap; }
+.help-tab { border: 1px solid var(--line); background: var(--surface); padding: 6px 12px; border-radius: 20px; cursor: pointer; font-size: 13px; font-weight: 500; }
+.help-tab.on { background: var(--accent); border-color: var(--accent); color: #fff; }
+.help-dl { display: flex; gap: 6px; }
+.doc { padding: 8px 28px 32px; max-width: 980px; line-height: 1.6; }
+.doc h2 { font-size: 24px; color: var(--accent); margin: 18px 0 4px; }
+.doc h3 { font-size: 17px; margin: 26px 0 8px; padding-top: 14px; border-top: 1px solid var(--line); }
+.doc h4 { font-size: 14.5px; margin: 18px 0 6px; }
+.doc p { margin: 8px 0; }
+.doc ul, .doc ol { padding-left: 22px; margin: 8px 0; }
+.doc li { margin: 3px 0; }
+.doc table { margin: 10px 0 14px; border: 1px solid var(--line); width: 100%; }
+.doc { overflow-x: auto; }
+.doc th { white-space: normal; background: var(--surface2); }
+.doc td { max-width: none; white-space: normal; overflow: visible; border-bottom: 1px solid var(--grid); vertical-align: top; }
+.doc code { font-size: 12px; }
+.doc a { color: var(--accent); }
+.steps-row { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }

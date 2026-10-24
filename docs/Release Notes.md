@@ -2,11 +2,11 @@
 
 Versions 1.0 – 1.2 · 24 Oct 2026 · Yasin Jariwala
 
-Inventory Analyzer is a browser app that inventories any folder you choose, analyzes storage, and exports Excel and CSV reports. It runs locally and uploads nothing. The current release, v1.2, passes all 92 automated tests.
+Inventory Analyzer is a browser app that inventories any folder you choose, analyzes storage, and exports Excel and CSV reports. It runs locally and uploads nothing. The current release, v1.2, passes all 97 automated tests.
 
 ## What's new in v1.2 (24 Oct 2026)
 
-v1.2 lets you go back to an earlier scan and download its reports, even after closing the app. All 92 automated tests pass, up from 81.
+v1.2 lets you go back to an earlier scan and download its reports, even after closing the app, and carries its own guides. All 97 automated tests pass, up from 81.
 
 | Change | Where |
 | --- | --- |
@@ -15,6 +15,7 @@ v1.2 lets you go back to an earlier scan and download its reports, even after cl
 | **Open last scan** offer when the app starts | New Scan |
 | Redesigned history table: full folder names, scan ID, start → end times and buttons no longer cut off | Scan History |
 | **Keep full results of past scans on this PC** (on by default; newest 20 scans) | Settings |
+| **Help & Documents**: User Guide, Setup & Administration Guide and Release Notes inside the app, each downloadable as PDF or Word | New menu item |
 
 Scans made before v1.2 kept only a summary, so they show as "Summary only" and can't be reopened. Rescan those folders once to save them.
 

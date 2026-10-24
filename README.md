@@ -106,9 +106,9 @@ In fallback mode browsers do **not** expose empty folders, and the browser lists
 ## Tests (test-driven)
 ```bash
 npm run test:unit      # 42 engine/export/controller/tree/history tests
-npm run test:ui        # 42 user-scenario tests of the React app (jsdom + Testing Library)
+npm run test:ui        # 47 user-scenario tests of the React app (jsdom + Testing Library)
 npm run test:e2e       # 8 Playwright tests against the production build in Chromium
 npm run test:coverage  # unit + UI with coverage -> test-reports/coverage
 npm run test:all       # everything
 ```
-`tests/SCENARIOS.md` lists the 43 user scenarios with their PRD references. `test-reports/TEST_REPORT.md` has the results, coverage and the red→green record. For E2E, install the browser once with `npx playwright install chromium`.
+`tests/SCENARIOS.md` lists the 44 user scenarios with their PRD references. `test-reports/TEST_REPORT.md` has the results, coverage and the red→green record. For E2E, install the browser once with `npx playwright install chromium`.

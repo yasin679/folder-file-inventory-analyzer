@@ -51,3 +51,4 @@ Layers: **U** = unit (engine/exports), **UI** = React app in jsdom (Testing Libr
 | S41 | Keeping full results can be turned off in Settings; such scans show "Summary only" and can't be opened | §11 privacy | UI |
 | S42 | New Scan offers "Open last scan" when a saved scan exists | workflow | UI |
 | S43 | Deleting a scan removes its saved results; only the newest 20 scans keep full results; old history databases upgrade without loss | FR-13 | U, UI |
+| S44 | Help & Documents inside the app: User Guide, Setup & Administration Guide and Release Notes readable in the app and downloadable as PDF and Word, so one shared link carries everything | Delivery | UI |

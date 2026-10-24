@@ -10,9 +10,10 @@ import { buildTables } from '../export/tables';
 import { buildWorkbook } from '../export/xlsx';
 import { Badge, Callout, NumberField, Panel } from './components';
 import { FolderExplorer, type TreeFocus } from './explorer';
+import { HelpDocs, type DocKind } from './help';
 import { Dashboard, Duplicates, EmptyFolders, Errors, FileInventory, FolderSummary, History, STATUS_LABEL, STATUS_TONE, StorageAnalysis } from './screens';
 
-type Screen = 'scan' | 'dashboard' | 'explorer' | 'files' | 'folders' | 'storage' | 'duplicates' | 'empty' | 'errors' | 'history' | 'settings';
+type Screen = 'scan' | 'dashboard' | 'explorer' | 'files' | 'folders' | 'storage' | 'duplicates' | 'empty' | 'errors' | 'history' | 'settings' | 'help';
 
 const NAV: Array<{ id: Screen; label: string; icon: string; needsData?: boolean }> = [
   { id: 'scan', label: 'New Scan', icon: '＋' },
@@ -26,6 +27,7 @@ const NAV: Array<{ id: Screen; label: string; icon: string; needsData?: boolean 
   { id: 'errors', label: 'Scan Errors', icon: '⚠', needsData: true },
   { id: 'history', label: 'Scan History', icon: '↺' },
   { id: 'settings', label: 'Settings', icon: '⚙' },
+  { id: 'help', label: 'Help & Documents', icon: '?' },
 ];
 
 function caps() {
@@ -203,6 +205,15 @@ export default function App() {
     finally { setHistoryBusy(null); }
   };
   const lastSaved = history.find((h) => savedIds.has(h.scan_id));
+  const saveDoc = async (title: string, kind: DocKind, filename: string, bytes: Uint8Array) => {
+    try {
+      await download(filename, bytes, kind === 'pdf' ? 'application/pdf' : 'application/vnd.openxmlformats-officedocument.wordprocessingml.document');
+      setMessage({ tone: 'good', text: `${title} (${kind === 'pdf' ? 'PDF' : 'Word'}) saved — check your Downloads folder.` });
+    } catch (e) {
+      if (e instanceof SaveDeclined) setMessage({ tone: 'info', text: 'Save cancelled — no file was saved.' });
+      else setMessage({ tone: 'bad', text: `Could not save the document: ${(e as Error).message}` });
+    }
+  };
 
   const go = (s: Screen) => { setScreen(s); if (s !== 'files') setFolderFilter(undefined); if (s === 'explorer') setTreeFocus(undefined); };
   const tables = useMemo(() => (result ? buildTables(result) : []), [result]);
@@ -230,7 +241,7 @@ export default function App() {
         <header className="top">
           <div>
             <h1>{NAV.find((n) => n.id === screen)?.label}</h1>
-            {result && screen !== 'scan' && screen !== 'settings' && screen !== 'history' && (
+            {result && screen !== 'scan' && screen !== 'settings' && screen !== 'history' && screen !== 'help' && (
               <div className="crumbs">
                 <span className="root">📁 {result.scan.root_label}</span>
                 <Badge tone={STATUS_TONE[result.scan.status]}>{STATUS_LABEL[result.scan.status]}</Badge>
@@ -240,7 +251,7 @@ export default function App() {
               </div>
             )}
           </div>
-          {result && !running && screen !== 'scan' && screen !== 'settings' && screen !== 'history' && (
+          {result && !running && screen !== 'scan' && screen !== 'settings' && screen !== 'history' && screen !== 'help' && (
             <div className="exports">
               <button className="btn primary" disabled={!!exporting} onClick={() => doExport('xlsx')}>{exporting === 'xlsx' ? 'Building…' : '⬇ Excel (.xlsx)'}</button>
               <button className="btn" disabled={!!exporting} onClick={() => doExport('zip')}>{exporting === 'zip' ? 'Zipping…' : '⬇ All CSVs (.zip)'}</button>
@@ -261,6 +272,7 @@ export default function App() {
             ? <Progress root={runningRoot} p={progress} onCancel={() => running.cancel()} dup={config.detectDuplicates} />
             : <NewScan cap={cap} config={config} setConfig={(c) => { setConfig(c); storeSettings({ ...c, detectDuplicates: false }); }}
                 onPick={pickFolder} onUpload={() => inputRef.current?.click()}
+                onHelp={() => go('help')}
                 onSample={() => begin({ mode: 'file-system-access', rootLabel: 'Shared Drive', handle: sampleFolder(), sample: true })}
                 hasResult={!!result} onView={() => go('dashboard')}
                 lastSaved={lastSaved && lastSaved.scan_id !== result?.scan.scan_id ? lastSaved : undefined} onOpenLast={() => lastSaved && openSaved(lastSaved.scan_id)} />)}
@@ -276,6 +288,7 @@ export default function App() {
             onOpen={openSaved} onDownload={downloadSaved}
             onDelete={(id) => deleteScan(id).then(refreshHistory).catch((e) => setHistoryErr(e.message))}
             onClear={() => clearScans().then(refreshHistory).catch((e) => setHistoryErr(e.message))} />}
+          {screen === 'help' && <HelpDocs onDownload={saveDoc} />}
           {screen === 'settings' && <Settings config={config} setConfig={(c) => { setConfig(c); storeSettings(c); }} cap={cap}
             onClear={() => clearScans().then(() => { refreshHistory(); setMessage({ tone: 'good', text: 'Local scan history cleared.' }); }).catch((e) => setMessage({ tone: 'bad', text: e.message }))} />}
         </div>
@@ -303,13 +316,16 @@ function Options({ config, setConfig, cap }: { config: ScanConfig; setConfig: (c
   );
 }
 
-function NewScan({ cap, config, setConfig, onPick, onUpload, onSample, hasResult, onView, lastSaved, onOpenLast }: {
-  cap: Caps; config: ScanConfig; setConfig: (c: ScanConfig) => void; onPick: () => void; onUpload: () => void; onSample: () => void; hasResult: boolean; onView: () => void;
+function NewScan({ cap, config, setConfig, onPick, onUpload, onSample, hasResult, onView, lastSaved, onOpenLast, onHelp }: {
+  cap: Caps; config: ScanConfig; setConfig: (c: ScanConfig) => void; onPick: () => void; onUpload: () => void; onSample: () => void; hasResult: boolean; onView: () => void; onHelp: () => void;
   lastSaved?: ScanRecord; onOpenLast: () => void;
 }) {
   return (
     <div className="newscan">
-      <ol className="steps"><li className="on">1 · Choose a folder</li><li>2 · Scan &amp; review</li><li>3 · Download reports</li></ol>
+      <div className="steps-row">
+        <ol className="steps"><li className="on">1 · Choose a folder</li><li>2 · Scan &amp; review</li><li>3 · Download reports</li></ol>
+        <button className="link" onClick={onHelp}>New here? Read the User Guide →</button>
+      </div>
       {hasResult && <Callout>You have a scan open. <button className="link" onClick={onView}>Back to the dashboard →</button></Callout>}
       {lastSaved && (
         <Callout tone="good"><div className="saved-offer">

@@ -1,0 +1,6 @@
+   × S44 Help & Documents inside the app > is available before any scan and shows the User Guide first 221ms
+   × S44 Help & Documents inside the app > switches between the three documents 61ms
+   × S44 Help & Documents inside the app > each document downloads as a real PDF and Word file 55ms
+   × S44 Help & Documents inside the app > New Scan points first-time users to the guide 200ms
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 4 ⎯⎯⎯⎯⎯⎯⎯
+      Tests  4 failed (4)

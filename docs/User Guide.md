@@ -14,6 +14,8 @@ Most folders take seconds to scan. You'll have an Excel report in under a minute
 4. Watch the progress panel. Click **Cancel scan** at any time; the results so far are kept and marked partial.
 5. Review the **Dashboard**, then click **Excel (.xlsx)** or **All CSVs (.zip)** at the top right.
 
+Need help later? Open **Help & Documents** in the left menu for this guide and the others, or download them as PDF or Word.
+
 Want to look around first? Click **Try with sample data** on New Scan. It runs the real engine on a made-up "Shared Drive" with about 320 files.
 
 ## See which folder has how many files, and where each file is
@@ -74,6 +76,7 @@ Result screens unlock after your first scan. The left menu stays locked while a 
 | Scan Errors | Every item that couldn't be read, with a category and a suggested fix | Filter by category |
 | Scan History | Every scan on this PC: folder, scan ID, date and times, status, counts, size, errors | Open a saved scan; download its Excel or CSVs; delete one, or clear all |
 | Settings | Defaults, hashing limit, local data, privacy and limitations | Restore defaults; clear stored history |
+| Help & Documents | This User Guide, the Setup & Administration Guide and the Release Notes, inside the app | Read them; download each as PDF or Word |
 
 ## Reading the results
 
