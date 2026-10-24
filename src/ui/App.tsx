@@ -207,8 +207,8 @@ export default function App() {
   const lastSaved = history.find((h) => savedIds.has(h.scan_id));
   const saveDoc = async (title: string, kind: DocKind, filename: string, bytes: Uint8Array) => {
     try {
-      await download(filename, bytes, kind === 'pdf' ? 'application/pdf' : 'application/vnd.openxmlformats-officedocument.wordprocessingml.document');
-      setMessage({ tone: 'good', text: `${title} (${kind === 'pdf' ? 'PDF' : 'Word'}) saved — check your Downloads folder.` });
+      await download(filename, bytes, 'application/pdf');
+      setMessage({ tone: 'good', text: `${title} (${kind.toUpperCase()}) saved — check your Downloads folder.` });
     } catch (e) {
       if (e instanceof SaveDeclined) setMessage({ tone: 'info', text: 'Save cancelled — no file was saved.' });
       else setMessage({ tone: 'bad', text: `Could not save the document: ${(e as Error).message}` });

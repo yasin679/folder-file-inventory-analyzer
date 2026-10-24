@@ -6,13 +6,19 @@ No backend, desktop app or agent. Nothing is uploaded. Source files are opened r
 
 ## Documentation
 
-| Document | Markdown | Word | PDF |
-| --- | --- | --- | --- |
-| User Guide | [md](docs/User%20Guide.md) | [docx](docs/Inventory%20Analyzer%20-%20User%20Guide.docx) | [pdf](docs/Inventory%20Analyzer%20-%20User%20Guide.pdf) |
-| Setup & Administration Guide | [md](docs/Setup%20and%20Administration%20Guide.md) | [docx](docs/Inventory%20Analyzer%20-%20Setup%20and%20Administration%20Guide.docx) | [pdf](docs/Inventory%20Analyzer%20-%20Setup%20and%20Administration%20Guide.pdf) |
-| Release Notes (v1.0–v1.2) | [md](docs/Release%20Notes.md) | [docx](docs/Inventory%20Analyzer%20-%20Release%20Notes.docx) | [pdf](docs/Inventory%20Analyzer%20-%20Release%20Notes.pdf) |
-| Test Report | [md](docs/Test%20Report.md) | | |
-| Product Requirements (PRD v3.0 + master prompt) | | [docx](docs/PRD%20and%20Master%20Prompt.docx) | |
+Seven numbered guides, as Markdown (readable here) and as formatted PDFs. The same guides are built into the app under **Help & Documents**.
+
+| ID | Document | For | Read online | PDF |
+|---|---|---|---|---|
+| IA-UG-01 | User Guide | Everyone who scans folders | [user-guide.md](docs/user-guide.md) | [PDF](docs/pdf/IA-UG-01_User_Guide.pdf) |
+| IA-IG-02 | Installation and Administration Guide | Administrators, IT support | [installation-and-administration.md](docs/installation-and-administration.md) | [PDF](docs/pdf/IA-IG-02_Installation_and_Administration_Guide.pdf) |
+| IA-QS-03 | Quick Start | New users | [quick-start.md](docs/quick-start.md) | [PDF](docs/pdf/IA-QS-03_Quick_Start.pdf) |
+| IA-FAQ-04 | FAQ and Troubleshooting | Everyone | [faq-and-troubleshooting.md](docs/faq-and-troubleshooting.md) | [PDF](docs/pdf/IA-FAQ-04_FAQ_and_Troubleshooting.pdf) |
+| IA-TD-05 | Technical Design | Developers, reviewers, security | [technical-design.md](docs/technical-design.md) | [PDF](docs/pdf/IA-TD-05_Technical_Design.pdf) |
+| IA-UAT-06 | UAT Test Cases | Testers, sign-off owners | [uat-test-cases.md](docs/uat-test-cases.md) | [PDF](docs/pdf/IA-UAT-06_UAT_Test_Cases.pdf) |
+| IA-RN-07 | Release Notes v1.2 | Everyone | [release-notes.md](docs/release-notes.md) | [PDF](docs/pdf/IA-RN-07_Release_Notes_v1.2.pdf) |
+
+Also: [Product requirements (PRD v3.0)](docs/PRD%20and%20Master%20Prompt.docx) · [User scenarios](tests/SCENARIOS.md) · [Test report](test-reports/TEST_REPORT.md)
 
 ## How to run it
 
@@ -27,13 +33,13 @@ No backend, desktop app or agent. Nothing is uploaded. Source files are opened r
 ```bash
 npm install          # Node 18+ (built and tested on Node 22)
 npm run dev          # http://localhost:5173
-npm test             # 28 automated tests (Vitest)
+npm test             # 89 unit and UI tests (Vitest); npm run test:e2e for 9 more in Chromium
 npm run build        # production build -> dist/
 npm run build:single # one self-contained HTML file -> dist-single/index.html
 npm run samples      # regenerate sample-exports/ from the test fixture
 ```
 
-`dist-single/index.html` can be opened straight from disk or hosted anywhere static. Note that the folder picker needs `http://localhost` or `https://` (a secure context); from `file://` only the upload fallback works.
+`dist-single/index.html` can be opened straight from disk or hosted anywhere static. The folder picker needs a secure context: `https://`, `http://localhost`, or a file opened from disk in Edge or Chrome.
 
 ## What's in the MVP
 
