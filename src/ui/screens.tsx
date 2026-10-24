@@ -236,7 +236,7 @@ export function StorageAnalysis({ r }: { r: ScanResult }) {
   ];
   return (
     <>
-      <div className="filters bar">
+      <div className="filters toolbar">
         <label className="inline">Top N <NumberField ariaLabel="Top N" value={n} min={1} max={500} integer onChange={setN} className="num" /></label>
         <label className="inline">Large-file threshold (MB) <NumberField ariaLabel="Large-file threshold (MB)" value={thMbNum} min={0} onChange={setThNum} className="num" /></label>
       </div>

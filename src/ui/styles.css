@@ -111,7 +111,7 @@ table.mini td, table.mini th { max-width: none; padding: 4px 8px; }
 .warn-text { color: var(--warn); }
 
 .filters { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 12px; align-items: center; }
-.filters.bar { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 10px 14px; margin: 0; }
+.filters.toolbar { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 10px 14px; margin: 0; }
 .filters input, .filters select, .options input[type=number] { border: 1px solid var(--line); background: var(--surface); border-radius: 7px; padding: 6px 9px; min-width: 0; }
 .filters input:focus, .filters select:focus, .options input:focus { outline: 2px solid color-mix(in srgb, var(--accent) 40%, transparent); border-color: var(--accent); }
 .filters .grow { flex: 1 1 220px; }
@@ -227,18 +227,31 @@ td.wrap:has(> :not(div)), td.wrap:not(:has(*)) { white-space: nowrap; }
 .help-tabs { display: flex; gap: 4px; flex-wrap: wrap; }
 .help-tab { border: 1px solid var(--line); background: var(--surface); padding: 6px 12px; border-radius: 20px; cursor: pointer; font-size: 13px; font-weight: 500; }
 .help-tab.on { background: var(--accent); border-color: var(--accent); color: #fff; }
-.help-dl { display: flex; gap: 6px; }
-.doc { padding: 8px 28px 32px; max-width: 980px; line-height: 1.6; }
-.doc h2 { font-size: 24px; color: var(--accent); margin: 18px 0 4px; }
-.doc h3 { font-size: 17px; margin: 26px 0 8px; padding-top: 14px; border-top: 1px solid var(--line); }
-.doc h4 { font-size: 14.5px; margin: 18px 0 6px; }
+.doc-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; padding: 22px 28px 16px; border-bottom: 1px solid var(--line); }
+.doc-head h2 { margin: 6px 0 4px; font-size: 24px; }
+.doc-id { display: inline-block; font: 600 11.5px ui-monospace, Consolas, monospace; letter-spacing: .04em; color: var(--accent); background: color-mix(in srgb, var(--accent) 12%, transparent); padding: 2px 8px; border-radius: 10px; }
+.doc-sub { margin: 0; color: var(--muted); }
+.doc-aud { margin: 6px 0 0; font-size: 12.5px; color: var(--muted); }
+.doc { padding: 4px 28px 32px; max-width: 1000px; line-height: 1.6; overflow-x: auto; }
+.doc h3 { font-size: 20px; color: var(--accent); margin: 30px 0 8px; padding-bottom: 6px; border-bottom: 2px solid var(--accent); }
+.doc h4 { font-size: 15.5px; margin: 22px 0 6px; }
+.doc h5 { font-size: 14px; margin: 16px 0 6px; }
 .doc p { margin: 8px 0; }
 .doc ul, .doc ol { padding-left: 22px; margin: 8px 0; }
 .doc li { margin: 3px 0; }
 .doc table { margin: 10px 0 14px; border: 1px solid var(--line); width: 100%; }
-.doc { overflow-x: auto; }
-.doc th { white-space: normal; background: var(--surface2); }
+.doc th { white-space: normal; background: var(--side); color: #fff; }
 .doc td { max-width: none; white-space: normal; overflow: visible; border-bottom: 1px solid var(--grid); vertical-align: top; }
 .doc code { font-size: 12px; }
+.doc pre { background: var(--surface2); border: 1px solid var(--line); border-left: 3px solid var(--accent); border-radius: 6px; padding: 10px 12px; overflow-x: auto; }
+.doc pre code { font-size: 12px; line-height: 1.45; }
+.doc figure { margin: 12px 0 16px; text-align: center; }
+.doc figure img { max-width: 100%; height: auto; border: 1px solid var(--line); border-radius: 6px; box-shadow: 0 1px 4px rgba(0,0,0,.08); }
+.doc figcaption { font-size: 12.5px; color: var(--muted); font-style: italic; margin-top: 4px; }
+.doc-callout { border-left: 4px solid var(--accent); border-radius: 6px; padding: 8px 14px; margin: 10px 0 14px; background: color-mix(in srgb, var(--accent) 9%, transparent); }
+.doc-callout.tip { border-color: #1f7a45; background: color-mix(in srgb, #1f7a45 10%, transparent); }
+.doc-callout.warning, .doc-callout.caution { border-color: #b7791f; background: color-mix(in srgb, #d69e2e 13%, transparent); }
+.doc-callout.important { border-color: var(--side); background: color-mix(in srgb, var(--accent) 6%, transparent); }
+.doc-callout p:first-child strong:first-child { display: block; }
 .doc a { color: var(--accent); }
 .steps-row { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }

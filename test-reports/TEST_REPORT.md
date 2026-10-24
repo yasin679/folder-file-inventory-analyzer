@@ -8,10 +8,10 @@ Run date: 2026-10-24 · Node 22 · Vitest 2.1.8 · Playwright 1.63 (Chromium 153
 |---|---|---|---|
 | Unit: engine, exports, history, worker controller, folder tree | `npm run test:unit` | 42 | ✅ all pass |
 | UI scenarios: React app in jsdom with real user events | `npm run test:ui` | 47 | ✅ all pass |
-| End-to-end: production build in real Chromium | `npm run test:e2e` | 8 | ✅ all pass |
-| **Total** | `npm run test:all` | **97** | ✅ |
+| End-to-end: production build in real Chromium | `npm run test:e2e` | 9 | ✅ all pass |
+| **Total** | `npm run test:all` | **98** | ✅ |
 
-Coverage across `src/` (unit + UI): **97.7 % statements, 90.0 % branches, 97.7 % lines.** Function coverage is 71 %. That figure is low because many small sort and render callbacks for table columns are never invoked in tests; the scenario behaviour behind them is exercised. Full HTML coverage is in `test-reports/coverage/index.html`.
+Coverage across `src/` (unit + UI): **97.6 % statements, 89.8 % branches, 97.6 % lines.** Function coverage is 74 %. That figure is low because many small sort and render callbacks for table columns are never invoked in tests; the scenario behaviour behind them is exercised. Full HTML coverage is in `test-reports/coverage/index.html`.
 
 The 44 user scenarios and the PRD requirements they cover are listed in `tests/SCENARIOS.md`. Each test name starts with its scenario ID, e.g. `npx vitest run -t "S15"`.
 
@@ -90,3 +90,11 @@ The live published app was also checked in a real browser signed in to claude.ai
 - **Working:** sample scan, Where your files are, Folder Explorer, and the Help screen rendering.
 - **Defect found:** the scan's report buttons showed on the Help screen. A test was added (S44b) and the defect fixed.
 - **Sharing:** viewed by someone else, the link showed "Sign in to view this page". It is private until the owner chooses Share → Anyone with the link.
+
+## Documentation release (v1.2 guides)
+
+The documentation was rebuilt as seven numbered guides (IA-UG-01 to IA-RN-07), each as Markdown and a formatted PDF, and all seven were built into Help & Documents.
+
+- **S44 rewritten first (red):** the Help tests were changed to expect seven guides with document IDs, bundled screenshots and numbered PDF downloads. All 4 changed tests failed before the code was changed, then passed.
+- **Defect found while capturing screenshots:** on Storage Analysis, the Top N and Large-file threshold boxes were squeezed into a 12-pixel strip, because the toolbar's style name (`bar`) was also used by the progress bar. jsdom has no layout, so the UI tests could not see it. A new end-to-end test (S16 E2E) checks that both boxes are fully visible and change the lists. It failed, the style was renamed, and it passed.
+- Final run: 89 unit and UI tests, 9 end-to-end tests, all passing.

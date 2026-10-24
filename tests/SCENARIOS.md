@@ -23,7 +23,7 @@ Layers: **U** = unit (engine/exports), **UI** = React app in jsdom (Testing Libr
 | S13 | Unreadable files / denied folders → dashboard warning, Scan Errors list with hints, folders marked incomplete, never "empty" | FR-12, AC 10 | UI, U |
 | S14 | File Inventory: search, extension, folder, size and duplicate filters, reset, sort, full relative path and dot-prefixed status visible | FR-05 | UI |
 | S15 | Folder Summary: direct vs recursive values; clicking a folder lists exactly that folder's subtree (not same-prefix siblings) | FR-06 | UI |
-| S16 | Storage Analysis: changing Top-N and the large-file threshold updates the lists | FR-07 | UI |
+| S16 | Storage Analysis: the Top-N and large-file threshold boxes are visible, and changing them updates the lists | FR-07 | UI, E2E |
 | S17 | Empty Folders lists empty and only-empty-subfolder folders with classification | FR-07, AC 7 | UI, U |
 | S18 | Download Excel → workbook with all sheets; row counts reconciled and confirmed to the user | FR-09, AC 11,13 | UI, E2E, U |
 | S19 | Download a single CSV and the CSV ZIP → UTF-8, escaped, injection-safe, right row counts | FR-10, AC 12 | UI, E2E, U |
@@ -51,4 +51,4 @@ Layers: **U** = unit (engine/exports), **UI** = React app in jsdom (Testing Libr
 | S41 | Keeping full results can be turned off in Settings; such scans show "Summary only" and can't be opened | §11 privacy | UI |
 | S42 | New Scan offers "Open last scan" when a saved scan exists | workflow | UI |
 | S43 | Deleting a scan removes its saved results; only the newest 20 scans keep full results; old history databases upgrade without loss | FR-13 | U, UI |
-| S44 | Help & Documents inside the app: User Guide, Setup & Administration Guide and Release Notes readable in the app and downloadable as PDF and Word, so one shared link carries everything | Delivery | UI |
+| S44 | Help & Documents inside the app: all seven numbered guides (IA-UG-01 to IA-RN-07) readable in the app with their screenshots bundled in, each downloadable as its formatted PDF, so one shared link carries everything | Delivery | UI |

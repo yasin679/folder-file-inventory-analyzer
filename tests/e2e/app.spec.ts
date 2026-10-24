@@ -161,3 +161,16 @@ test('S39 E2E: a large scan (~26,000 files, ~22,000 folders) survives a page rel
   await wb.xlsx.load(readFileSync(await x.path()));
   expect(wb.getWorksheet('File Inventory')!.rowCount - 1).toBe(files);
 });
+
+test('S16 E2E: Storage Analysis Top-N and threshold boxes are visible and usable', async ({ page }) => {
+  await page.goto('/');
+  await page.getByRole('button', { name: /sample data/ }).click();
+  await page.locator('nav button', { hasText: 'Storage Analysis' }).click();
+  for (const name of ['Top N', 'Large-file threshold (MB)']) {
+    const box = await page.getByRole('spinbutton', { name, exact: true }).boundingBox();
+    expect(box && box.height).toBeGreaterThan(20);
+    await expect(page.getByRole('spinbutton', { name, exact: true })).toBeInViewport({ ratio: 1 });
+  }
+  await page.getByRole('spinbutton', { name: 'Top N', exact: true }).fill('5');
+  await expect(page.getByRole('heading', { name: 'Top 5 largest files' })).toBeVisible();
+});
